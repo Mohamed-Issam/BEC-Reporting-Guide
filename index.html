@@ -46,7 +46,7 @@
       font-size:12px; letter-spacing:.3px; text-transform:uppercase;
     }
     .toc{
-      margin-top:28px; display:grid; gap:10px; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+      margin-top:28px; display:grid; gap:10px; grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
     }
     .toc a{
       text-decoration:none; color:#e5e7eb; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
@@ -191,6 +191,20 @@
        transform: translate(-50%, -50%) !important;
        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
      }
+    
+    /* Hover GIF flip animation */
+    .hover-gif {
+      transition: transform .6s ease;
+      transform-style: preserve-3d;
+    }
+    .gif-flip-once {
+      animation: gifFlip .8s ease;
+    }
+    @keyframes gifFlip {
+      0% { transform: rotateY(0deg); }
+      50% { transform: rotateY(180deg); }
+      100% { transform: rotateY(360deg); }
+    }
     
     /* Loading animation for modal */
     .modal-loading {
@@ -565,9 +579,17 @@
         <span class="pill">Technical • Business Technology</span>
       </div>
       <div class="section-body">
+        <div class="card">
+          <p>Currently we have 2 departments developing and publishing Power BI reports as highlighted in the organization chart below: </p>
+          <div class="figure">
+            <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EdEKA4WbpsdJlo-7Al-A_tAB6nmRgZ07F-0Wj5i4bpmABA?Download=1" alt="Organization Chart">
+          </div>
+          <p>Stakeholders include: CEO, Project Director, Controls Director, Operations, HR, Finance, PCS, Environment, HSE, Cost, Planning, Reporting Team (PCI), Business Development, Finance, and IT.</p>
+        </div>
+      </div>
+      <div class="section-body">
           <div class="card">
             <p><strong>Purpose:</strong> Help teams understand the reporting system and build BI reports that meet departmental needs while aligning with company standards.</p>
-
             <ol>
               <li>
                 <strong>Technical Reports</strong>
@@ -578,7 +600,7 @@
                 </ul>
               </li>
               <li>
-                <strong>Business Technology Reports</strong>
+                <strong>Business Technology Reports (Non Technical)</strong>
                 <ul class="report-meta">
                   <li><span class="report-label">Produced by</span>IT</li>
                   <li><span class="report-label">Focus</span>Platform-wide views</li>
@@ -590,17 +612,31 @@
         </div>
         <div class="section-body">
           <div class="card">
-            <p><strong>Accessibility and Available Portals:</strong> A Power BI workspace is a centralized environment where dashboards, reports, and datasets are stored, shared, and collaboratively managed.</p>
-            <div class="grid">
-              <div class="card">
-                <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EZkCaI5d0BNDhUP08jXpLW8BjeGGsr_bvYxkRRPF_rYSKw?download=1" alt="PCI Workspace" style="width:100%;height:auto;border-radius:10px;display:block;">
-                <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">PCI Workspace</p>
+            <p><strong>Accessibility and Available Portals:</strong> Power BI dashboards are stored in workspaces and can be viewed from an All in One Dashboard containing links to all other dashboards.</p>
+            <ul>
+              <li><strong>Power BI Workspaces:</strong> A centralized environment where dashboards, reports, and datasets are stored, shared, and collaboratively managed. Can be thought of the backend environment</li>
+              <div class="grid">
+                <div class="card">
+                  <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EZkCaI5d0BNDhUP08jXpLW8BjeGGsr_bvYxkRRPF_rYSKw?download=1" alt="PCI Workspace" style="width:100%;height:auto;border-radius:10px;display:block;">
+                  <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">PCI Workspace</p>
+                </div>
+                <div class="card">
+                  <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUTo8eOqUtRHiNJQXXL649cBC7G7EztUZiLcvcpOe_A-Dg?download=1" alt="Business Technology Workspace" style="width:100%;height:auto;border-radius:10px;display:block;">
+                  <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">Business Technology Workspace</p>
+                </div>
               </div>
-              <div class="card">
-                <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUTo8eOqUtRHiNJQXXL649cBC7G7EztUZiLcvcpOe_A-Dg?download=1" alt="Business Technology Workspace" style="width:100%;height:auto;border-radius:10px;display:block;">
-                <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">Business Technology Workspace</p>
+              <li><strong>All in One Dashboard:</strong> A dashboard stored in the workspace that is housing links to all the other dashboards in the workspace, currently we have 2 All in One dashboard for each department</li>
+              <div class="grid">
+                <div class="card">
+                  <img class="hover-gif" data-gif-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EZgXf5FY2H9JphPdRyKDsM8BmeMmQJ02-IhO2jA-sbGDFA?download=1&gif" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EZgXf5FY2H9JphPdRyKDsM8BmeMmQJ02-IhO2jA-sbGDFA?download=1&gif" alt="PCI All in One Dashboard (GIF)" style="width:100%;height:auto;border-radius:10px;display:block;">
+                  <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">PCI All in One Dashboard</p>
+                </div>
+                <div class="card">
+                  <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EbSxnZQy_1dJmU_9lBomr-MBWFSGMBjM7ddbJVpXa2_zWQ?download=1" alt="Business Technology All in One Dashboard" style="width:100%;height:auto;border-radius:10px;display:block;">
+                  <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">Business Technology All in One Dashboard</p>
+                </div>
               </div>
-            </div>
+            </ul>
           </div>
         </div>
       </section>
@@ -769,12 +805,33 @@
                     <div class="nested-accordion-content">
                       <ol>
                         <li>Titles at top-left, logo at top-right, filters at top-center.</li>
+                        <li>Menu bar with icons for Home, Reset Filters, and Date.</li>
                         <li>Include a landing page with summary, responsible team, last refresh, and navigation.</li>
-                        <li>Hide all other pages by default.</li>
-                        <li>Provide chart titles, one line where possible.</li>
+                        <li>Arrange visuals to guide the user’s eye logically (left-to-right, top-to-bottom).</li>
+                        <li>Each report must have at least 2 pages.</li>
+                        <li>Use buttons and bookmarks for navigation</li>
+                        <li>Only the landing page is visible and the rest is hidden. Landing page must include:</li>
+                          <ul>
+                            <li>Short summary of dashboard purpose/functions.</li>
+                            <li>Responsible person/ream for updates.</li>
+                            <li>Last refresh timestamp.</li>
+                            <li>A navigation link to the first report page.</li>
+                          </ul>
+                        <li>Provide chart titles, one line where possible. Clear and descriptive ex: "Cost by Date"</li>
                         <li>Use rounded borders (8–12px) consistently.</li>
-                        <li>Font sizes: Page Title 18–24pt; Chart Titles 14–16pt; Labels 8–12pt.</li>
-                        <li>Color palette: Blue (primary), Gray (secondary), Red for alerts/warnings only.</li>
+                        <li>Font sizes:</li>
+                          <ul>
+                            <li>Page Title: 18–24pt</li>
+                            <li>Chart Titles: 14–16pt</li>
+                            <li>Labels: 8–12pt</li>
+                            <li>Minimum readable size recommended for body text: 12 pt. Ensure contrast rations are accessible.</li>
+                          </ul>
+                        <li>Color palette:</li>
+                          <ul>
+                            <li>Blue (primary)</li>
+                            <li>Gray (secondary)</li>
+                            <li>Red for alerts/warnings only</li>
+                          </ul>
                       </ol>
                       <div class="figure"><img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EaYYokmVTJNCnKZofoVpDToBU9jEXTa6m4TgbugvVKEg8A?Download=1" alt="Sample Dashboard Layout"></div>
                     </div>
@@ -826,7 +883,7 @@
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 BEC – Power BI Development Manual</p>
+    <p>&copy; 2025 BEC – BEC Reporting Guide</p>
   </footer>
 
   <!-- Back to Top Button -->
@@ -933,6 +990,31 @@
         toggleSection(header, content);
       });
     }
+  </script>
+  <script>
+    // Restart GIF on hover for elements with class hover-gif
+    (function(){
+      const attachOncePerHover = (img) => {
+        const original = img.getAttribute('data-gif-src') || img.src;
+        let hasStarted = false;
+        img.addEventListener('mouseenter', () => {
+          if (hasStarted) return;
+          hasStarted = true;
+          // start flip animation once
+          img.classList.add('gif-flip-once');
+          // force restart by resetting src with cache buster once
+          const url = original + (original.includes('?') ? '&' : '?') + 't=' + Date.now();
+          img.src = url;
+          // remove animation class after it completes to allow future re-use
+          setTimeout(() => img.classList.remove('gif-flip-once'), 900);
+        });
+        img.addEventListener('mouseleave', () => {
+          // allow restarting on next hover only after mouse leaves area
+          hasStarted = false;
+        });
+      };
+      document.querySelectorAll('img.hover-gif').forEach(attachOncePerHover);
+    })();
   </script>
 </body>
 </html>
