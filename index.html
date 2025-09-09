@@ -50,7 +50,7 @@
     }
     .toc a{
       text-decoration:none; color:#e5e7eb; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08); padding:14px 16px; border-radius:16px; display:flex; gap:12px; align-items:center;
+      border:1px solid rgba(255,255,255,.08); padding:14px 16px; border-radius:16px; display:flex; gap:12px; align-items:center; display: block;
     }
     .toc a:hover{ border-color: rgba(255,255,255,.18); transform: translateY(-1px); transition: all .15s ease; }
     .toc svg{ flex:0 0 22px; opacity:.9 }
@@ -167,17 +167,17 @@
          /* Make images clickable */
      .clickable-image {
        cursor: pointer;
-       transition: transform 0.2s ease, box-shadow 0.2s ease;
+       transition: box-shadow 0.25s ease;
      }
      
      .clickable-image:hover {
-       transform: scale(1.02);
-       box-shadow: 0 8px 25px rgba(31, 111, 235, 0.3);
+       box-shadow:
+         0 0 14px 2px rgba(31,111,235,0.45),
+         0 0 28px 10px rgba(0,179,164,0.25);
      }
      
      /* Disable hover effects when modal is open */
      .modal-open .clickable-image:hover {
-       transform: none;
        box-shadow: none;
      }
      
@@ -518,6 +518,67 @@
             font-family: ui-monospace, Menlo, Consolas, monospace;
             background: rgba(0,179,164,0.06);
           }
+          .section-divider {
+            height: 1px;
+            border: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0));
+            margin: 16px 0;
+          }
+          /* Inline album */
+          .inline-album {
+            position: relative;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 12px;
+            padding: 10px 44px;
+            margin: 8px 0 4px 0;
+          }
+          .album-viewport {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+          }
+          .album-slide { display: none; margin: 0; width: 100%; height: 100%; position: absolute; inset: 0; }
+          .album-slide.active { display: block; }
+          .album-slide img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            padding: 8px; /* inner margin inside viewport */
+          }
+          .album-caption { display:none; font-size: 12px; color: #93a5bf; padding: 8px 2px 2px 2px; }
+          .album-caption-display { font-size: 12px; color: #93a5bf; margin-top: 6px; }
+          .album-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(15,23,42,.6);
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background .2s, transform .1s;
+            user-select: none;
+          }
+          .album-nav:hover { background: rgba(15,23,42,.8); }
+          .album-nav:active { transform: translateY(-50%) scale(.96); }
+          .album-nav.prev { left: 8px; }
+          .album-nav.next { right: 8px; }
   </style>
 </head>
 <body>
@@ -532,7 +593,7 @@
       <p class="subtitle">A practical, visual checklist for designing, modeling, securing, and publishing high‑quality dashboards adhereing to BEC best practices. Use this as your standard operating procedure for all dashboards.
       </p>
       <!-- Quick Links -->
-      <div class="toc">
+      <div class="toc"; style="text-align: center">
         <a href="#purpose"><span>1. Purpose</span></a>
         <a href="#audience"><span>2. Audience</span></a>
         <a href="#system"><span>3. Reporting System</span></a>
@@ -727,18 +788,41 @@
                             </tr>
                           </tbody>
                           </table>
+                          <p><a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXKZOqIjt4ZAvfk2E2Z-CUsB_ly7jsAGmaKUHzEeVV5x2w?download=1">View folder structure practical example</a></p>
                         </div>
-                        <li>Excel sheets must be formatted as tables, named like <span class="mono">T_Invoices</span>.</li>
-                        <li>The dataset must include a primary key column with distinct, non-duplicate values.</li>
+                        <li>Excel sheets must be formatted as tables, named like <span class="mono">T_Invoices</span>. <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUU8KSqW1oxAjIKGxd2jCywB-cN_yBzEbCYehFI8tDMeFw?download=1">See Example</a></li>
+                        <li>The dataset must include a primary key column with distinct, non-duplicate values. For example in the picture above "IPC" can be considered the primary key</li>
                         <li>A SharePoint URL parameter must be defined in the Power BI model.</li>
                         <li>If using cloud databases (Aconex, Azure), contact IT for credentials and optimized views.</li>
                       </ol>
+                      <hr class="section-divider">
+                      <strong> Steps to connecting to manual excel/csv sheets</strong>
+                      <div class="inline-album" data-album>
+                        <div class="album-viewport">
+                          <div class="album-slide active">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYMOrXdpAD5GmSUzBZ9WrGYBroNkj3QnIqGm3oln5EeOgA?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYMOrXdpAD5GmSUzBZ9WrGYBroNkj3QnIqGm3oln5EeOgA?download=1" style="width: 93%" alt="Step 1 - Open Get Data">
+                            <div class="album-caption">Step 1: Open Power BI Desktop and click Get Data</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXj3c406t4dPlGKVhT5Mw7EBV3vKFI9z4OHQ98M7acuQOg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXj3c406t4dPlGKVhT5Mw7EBV3vKFI9z4OHQ98M7acuQOg?download=1" style="width: 93%" alt="Step 2 - Choose Excel">
+                            <div class="album-caption">Step 2: Choose Excel/CSV as your data source</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQkHqodtlmVKrC9abTo0JZQBOsHDpoVLrLASOo2-R9nzrg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQkHqodtlmVKrC9abTo0JZQBOsHDpoVLrLASOo2-R9nzrg?download=1" style="width: 93%" alt="Step 3 - Load Table">
+                            <div class="album-caption">Step 3: Select the required table and click Load</div>
+                          </div>
+                        </div>
+                        <div class="album-caption-display"></div>
+                        <button class="album-nav prev" aria-label="Previous">&#10094;</button>
+                        <button class="album-nav next" aria-label="Next">&#10095;</button>
+                      </div>
+
                     </div>
                   </div>
                   
                   <div class="nested-accordion-item">
                     <div class="nested-accordion-header">
-                      <h4>1.2 Data Processing</h4>
+                      <h4>1.2 Data Transformation (Power Query Stage)</h4>
                       <span>+</span>
                     </div>
                     <div class="nested-accordion-content">
@@ -895,6 +979,12 @@
     <button class="accordion-control-btn" onclick="collapseAllAccordions()" title="Collapse All">−</button>
   </div>
 
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close" id="modalClose">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Expanded image">
+  </div>
+
   <!-- Accordion JS -->
   <script>
     // Ensure page starts at top
@@ -1014,6 +1104,81 @@
         });
       };
       document.querySelectorAll('img.hover-gif').forEach(attachOncePerHover);
+    })();
+  </script>
+  <script>
+    // Inline album navigation
+    (function(){
+      document.querySelectorAll('[data-album]').forEach(album => {
+        const slides = Array.from(album.querySelectorAll('.album-slide'));
+        const prev = album.querySelector('.album-nav.prev');
+        const next = album.querySelector('.album-nav.next');
+        const captionDisplay = album.querySelector('.album-caption-display');
+        let index = slides.findIndex(s => s.classList.contains('active'));
+        if (index < 0) index = 0;
+        function show(i){
+          slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+          if (captionDisplay) {
+            const captionEl = slides[i].querySelector('.album-caption');
+            captionDisplay.textContent = captionEl ? captionEl.textContent : '';
+          }
+        }
+        // initialize caption
+        show(index);
+        prev.addEventListener('click', () => {
+          index = (index - 1 + slides.length) % slides.length;
+          show(index);
+        });
+        next.addEventListener('click', () => {
+          index = (index + 1) % slides.length;
+          show(index);
+        });
+      });
+    })();
+  </script>
+  <script>
+    // Image modal behavior for links with class open-image
+    (function(){
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const closeBtn = document.getElementById('modalClose');
+      const body = document.body;
+      if (!modal || !modalImg || !closeBtn) return;
+      function openModal(src){
+        modal.style.display = 'block';
+        modalImg.src = src;
+        body.classList.add('modal-open');
+      }
+      function closeModal(){
+        modal.style.display = 'none';
+        modalImg.src = '';
+        body.classList.remove('modal-open');
+      }
+      document.querySelectorAll('a.open-image').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const src = link.getAttribute('data-img-src');
+          if (src) openModal(src);
+        });
+      });
+      // Album images open in modal on click
+      document.querySelectorAll('.album-slide img.open-image').forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.preventDefault();
+          const src = img.getAttribute('data-img-src') || img.getAttribute('src');
+          if (src) openModal(src);
+        });
+      });
+      // Ensure any album images use their data source as src so they display immediately
+      document.querySelectorAll('.album-slide img[data-img-src]').forEach(img => {
+        const ds = img.getAttribute('data-img-src');
+        if (ds && (!img.getAttribute('src') || img.getAttribute('src') !== ds)) {
+          img.setAttribute('src', ds);
+        }
+      });
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
     })();
   </script>
 </body>
