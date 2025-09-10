@@ -50,7 +50,7 @@
     }
     .toc a{
       text-decoration:none; color:#e5e7eb; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08); padding:14px 16px; border-radius:16px; display:flex; gap:12px; align-items:center; display: block;
+      border:1px solid rgba(255,255,255,.08); padding:14px 16px; border-radius:16px; display:flex; gap:12px; align-items:center; vertical-align: middle; justify-content: center; justify-content: center;
     }
     .toc a:hover{ border-color: rgba(255,255,255,.18); transform: translateY(-1px); transition: all .15s ease; }
     .toc svg{ flex:0 0 22px; opacity:.9 }
@@ -429,6 +429,12 @@
             padding: 2px 8px;
             font-size: 13px;
             margin-right: 6px;
+            min-height: 40px;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            align-content: center;
           }
           .report-examples {
             color: #a5f3fc;
@@ -588,7 +594,7 @@
       <a href="#" class="logo-link">
         <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EfGIQO9M8khFtcTu4et3g_oBrbAaVuS8IU3bC9bMne2WjA?download=1" alt="Logo">
       </a>
-      <span class="badge">By Eng. Karam Moukhtar – Project Controls Department</span>
+      <span class="badge">Supervised By Eng. Karam Moukhtar – Project Controls Department</span>
       <h1 class="title">BEC Reporting System</h1>
       <p class="subtitle">A practical, visual checklist for designing, modeling, securing, and publishing high‑quality dashboards adhereing to BEC best practices. Use this as your standard operating procedure for all dashboards.
       </p>
@@ -597,9 +603,8 @@
         <a href="#purpose"><span>1. Purpose</span></a>
         <a href="#audience"><span>2. Audience</span></a>
         <a href="#system"><span>3. Reporting System</span></a>
-        <a href="#organization"><span>4. Organization</span></a>
-        <a href="#workflow"><span>5. Workflow</span></a>
-        <a href="#checklist"><span>6. Quality Checklist</span></a>
+        <a href="#workflow"><span>4. Workflow & Responsibility (RACI)</span></a>
+        <a href="#checklist"><span>5. Quality Checklist</span></a>
       </div>
     </div>
   </header>
@@ -702,24 +707,10 @@
         </div>
       </section>
 
-    <!-- Organization -->
-    <section id="organization">
-      <div class="section-hd">
-        <h2>4) Responsibilities & Organization</h2>
-        <span class="pill">Structure • Stakeholders</span>
-      </div>
-      <div class="section-body">
-        <div class="figure">
-          <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EdEKA4WbpsdJlo-7Al-A_tAB6nmRgZ07F-0Wj5i4bpmABA?Download=1" alt="Organization Chart">
-        </div>
-        <p>Stakeholders include: CEO, Project Director, Controls Director, Operations, HR, Finance, PCS, Environment, HSE, Cost, Planning, Reporting Team (PCI), Business Development, Finance, and IT.</p>
-      </div>
-    </section>
-
     <!-- Workflow -->
     <section id="workflow">
       <div class="section-hd">
-        <h2>5) Dashboard Creation Workflow</h2>
+        <h2>4) Dashboard Creation Workflow</h2>
         <span class="pill">Development • Review • QC • Publish</span>
       </div>
       <div class="section-body">
@@ -735,7 +726,7 @@
      <!-- Checklist -->
       <section id="checklist">
         <div class="section-hd">
-          <h2>6) Quality Checklist</h2>
+          <h2>5) Quality Checklist</h2>
           <span class="pill">Development • Publishing</span>
         </div>
         <div class="section-body">
@@ -790,6 +781,7 @@
                           </table>
                           <p><a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXKZOqIjt4ZAvfk2E2Z-CUsB_ly7jsAGmaKUHzEeVV5x2w?download=1">View folder structure practical example</a></p>
                         </div>
+                        <li>Dashboard file name should follow this naming convention "Dashboad Name - Rev00", and new modifications need to take a new revision like this <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ES4Ys-nn495Hknw0rvoLG5EB0bHUDQfSO0XsLPh-Yg-cCg?download=1"> See Example</a></li></li>
                         <li>Excel sheets must be formatted as tables, named like <span class="mono">T_Invoices</span>. <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUU8KSqW1oxAjIKGxd2jCywB-cN_yBzEbCYehFI8tDMeFw?download=1">See Example</a></li>
                         <li>The dataset must include a primary key column with distinct, non-duplicate values. For example in the picture above "IPC" can be considered the primary key</li>
                         <li>A SharePoint URL parameter must be defined in the Power BI model.</li>
@@ -800,16 +792,80 @@
                       <div class="inline-album" data-album>
                         <div class="album-viewport">
                           <div class="album-slide active">
-                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYMOrXdpAD5GmSUzBZ9WrGYBroNkj3QnIqGm3oln5EeOgA?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYMOrXdpAD5GmSUzBZ9WrGYBroNkj3QnIqGm3oln5EeOgA?download=1" style="width: 93%" alt="Step 1 - Open Get Data">
-                            <div class="album-caption">Step 1: Open Power BI Desktop and click Get Data</div>
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYekeC35gUtOotje0pQaZPMB-GGCHS9Lqga4BhqKdjTZ8g?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYekeC35gUtOotje0pQaZPMB-GGCHS9Lqga4BhqKdjTZ8g?download=1" style="width: 93%" alt="Step 1">
+                            <div class="album-caption">Step 1: Open Power BI Desktop and click Transform Data to open Power Query</div>
                           </div>
                           <div class="album-slide">
-                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXj3c406t4dPlGKVhT5Mw7EBV3vKFI9z4OHQ98M7acuQOg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXj3c406t4dPlGKVhT5Mw7EBV3vKFI9z4OHQ98M7acuQOg?download=1" style="width: 93%" alt="Step 2 - Choose Excel">
-                            <div class="album-caption">Step 2: Choose Excel/CSV as your data source</div>
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EX0Fr5hV0bNPpbLhy4kJXnEBBujdxxpgFzVty3WYzvEkhg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EX0Fr5hV0bNPpbLhy4kJXnEBBujdxxpgFzVty3WYzvEkhg?download=1" style="width: 93%" alt="Step 2">
+                            <div class="album-caption">Step 2: Create a new parameter for the root path of your sharepoint folder (Checklist point 4)</div>
                           </div>
                           <div class="album-slide">
-                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQkHqodtlmVKrC9abTo0JZQBOsHDpoVLrLASOo2-R9nzrg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQkHqodtlmVKrC9abTo0JZQBOsHDpoVLrLASOo2-R9nzrg?download=1" style="width: 93%" alt="Step 3 - Load Table">
-                            <div class="album-caption">Step 3: Select the required table and click Load</div>
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EasitRFyFVZCmZ3JVXFt2i8Bxt1ADT_msJppdVnLGfIBog?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EasitRFyFVZCmZ3JVXFt2i8Bxt1ADT_msJppdVnLGfIBog?download=1" style="width: 93%" alt="Step 3">
+                            <div class="album-caption">Step 3: Fill in parameter data and rooth path</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/Ed0FAqBrRx9MvruOhVnWSk8Be-a695WIPGg0C3keGtlFbQ?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/Ed0FAqBrRx9MvruOhVnWSk8Be-a695WIPGg0C3keGtlFbQ?download=1" style="width: 93%" alt="Step 4">
+                            <div class="album-caption">Step 4: Connect to Sharepoint Folder through New Data Source</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/Ec4bIOECsvhEo2GEx8THNToBmz38IBBqzHZ7IW5Gd4jq3Q?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/Ec4bIOECsvhEo2GEx8THNToBmz38IBBqzHZ7IW5Gd4jq3Q?download=1" style="width: 93%" alt="Step 5">
+                            <div class="album-caption">Step 5: Connect to Sharepoint Folder</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EZX-q3VGWmJOkzRXHm1qXd0BlPImMQWDrpO9q9Skcd3Tdw?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EZX-q3VGWmJOkzRXHm1qXd0BlPImMQWDrpO9q9Skcd3Tdw?download=1" style="width: 93%" alt="Step 6">
+                            <div class="album-caption">Step 6: Either type the root path manually or choose the parameter that we just created</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EfUOoRYd6SZAjVVPU8cCUK0BgBbSriz9hobzdWG8Y77Rcw?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EfUOoRYd6SZAjVVPU8cCUK0BgBbSriz9hobzdWG8Y77Rcw?download=1" style="width: 93%" alt="Step 7">
+                            <div class="album-caption">Step 7: Click transform data</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EfBPg9pb_shJvbPR0TLNr_UBVZiJZIH8a2dlk7uuwUCrkw?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EfBPg9pb_shJvbPR0TLNr_UBVZiJZIH8a2dlk7uuwUCrkw?download=1" style="width: 93%" alt="Step 8">
+                            <div class="album-caption">Step 8: Navigate to Folder Path column in Power Query and filter to get to the desired excel/csv file</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUPfDj3NHFdOrRizYpdmdakBkb_kWAWQAJyiNhbAymR53Q?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUPfDj3NHFdOrRizYpdmdakBkb_kWAWQAJyiNhbAymR53Q?download=1" style="width: 93%" alt="Step 9">
+                            <div class="album-caption">Step 9: Details on filtering Folder Path column. The search path here is an example and each user might have a different folder structure.</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQcfZmhvbehIgDtsAYkdIa0BHcfuLx0hga8ZIAju_h70dA?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQcfZmhvbehIgDtsAYkdIa0BHcfuLx0hga8ZIAju_h70dA?download=1" style="width: 93%" alt="Step 10">
+                            <div class="album-caption">Step 10: Add a custom column to extract the contents of the excel/csv file. There are other ways but this is the recommended method. Here we named the new column "Sheet Content"</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EdZZoT_r3YRJszcsyd0tNPcBbpdInkpZ0ponpcWyGxRRWg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQkHqodtlmVKrC9abTo0JZQBOsHDpoVLrLASOo2-R9nzrg?download=1" style="width: 93%" alt="Step 11">
+                            <div class="album-caption">Step 11: Filter on Data and Kind</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXq_K54SxsVKpbE-SOGowfQBgZtk8M2rF-9zQNt421OGCg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXq_K54SxsVKpbE-SOGowfQBgZtk8M2rF-9zQNt421OGCg?download=1" style="width: 93%" alt="Step 12">
+                            <div class="album-caption">Step 12: This only applies for excel sheet since we agreed that any data will be converted to a table in excel, so in this step we filter on tables only underneath the "Kind" column</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EV2KeOQFJrpIp89G0TC-yO0BkIcF46aLML4rEgg0bwxQlA?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EV2KeOQFJrpIp89G0TC-yO0BkIcF46aLML4rEgg0bwxQlA?download=1" style="width: 93%" alt="Step 13">
+                            <div class="album-caption">Step 13: Remove unrelated columns</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQKl1w5WXfdKgE0I7g0u81UBwRWXChPGP2D8et7zXha_Yg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EQKl1w5WXfdKgE0I7g0u81UBwRWXChPGP2D8et7zXha_Yg?download=1" style="width: 93%" alt="Step 14">
+                            <div class="album-caption">Step 14: This step serves as a guide for Checklist point 2 under the "Data Transformation" stage where we extract the date of the file from the name</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ESc1qb38XcBKrUCE5Oz5w9IB46aj6-4gOUCvNRo2CrvX_w?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ESc1qb38XcBKrUCE5Oz5w9IB46aj6-4gOUCvNRo2CrvX_w?download=1" style="width: 93%" alt="Step 15">
+                            <div class="album-caption">Step 15: Continue date column data extraction from file name</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ETUS1riSpiJCnCRpUlA8_noBNXIEQbRA6Q960xLJMLyzIw?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ETUS1riSpiJCnCRpUlA8_noBNXIEQbRA6Q960xLJMLyzIw?download=1" style="width: 93%" alt="Step 16">
+                            <div class="album-caption">Step 16: Convert column to date after extracting the date data</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EaRH2aPVbz1NpVl5YrFPC9EBvCFlx6VV09NdABl-sapRww?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EaRH2aPVbz1NpVl5YrFPC9EBvCFlx6VV09NdABl-sapRww?download=1" style="width: 93%" alt="Step 17">
+                            <div class="album-caption">Step 17: Finally change column name apropiately</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EamZF3p-qCRBq1wu1aptNoUBDmJ-N0ZtoE-DBa1VBKMLbg?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EamZF3p-qCRBq1wu1aptNoUBDmJ-N0ZtoE-DBa1VBKMLbg?download=1" style="width: 93%" alt="Step 18">
+                            <div class="album-caption">Step 18: To load the rest of the data, click on the expand button and choose relevant columns</div>
+                          </div>
+                          <div class="album-slide">
+                            <img class="clickable-image open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ET9s2pdhz3ZAp9-Mbuj7MeMBk8mte14ASq6DXef-zXvyuA?download=1" src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ET9s2pdhz3ZAp9-Mbuj7MeMBk8mte14ASq6DXef-zXvyuA?download=1" style="width: 93%" alt="Step 19">
+                            <div class="album-caption">Step 19: Final output</div>
                           </div>
                         </div>
                         <div class="album-caption-display"></div>
@@ -830,14 +886,14 @@
                         <li><span class="report-label">Data Types</span><span class="report-text">Validate and assign correct data types (Text, Number, Date, etc.)</span></li>
                         <li><span class="report-label">Date Column</span><span class="report-text">For manual data sources, add a "Date Refreshed" column that reads from the manual file metadata</span></li>
                         <li><span class="report-label">Null / Missing Values</span><span class="report-text">Identify and handle nulls or missing values appropriately</span></li>
-                        <li><span class="report-label">Consistent Formatting</span><span class="report-text">Apply consistent formatting (trim spaces, standardize case, clean characters)</span></li>
+                        <li><span class="report-label">Consistent Formatting</span><span class="report-text">Apply consistent formatting (trim spaces, standardize case (Capetalize, Proper), clean characters). This is important for columns that are used for relations or slicers.</span></li>
                         <li><span class="report-label">Deduplication</span><span class="report-text">Remove duplicate rows based on key fields</span></li>
-                        <li><span class="report-label">Filtering</span><span class="report-text">Apply filters to exclude irrelevant rows or categories</span></li>
-                        <li><span class="report-label">Merging / Appending</span><span class="report-text">Ensure merging/appending queries have aligned columns and data types</span></li>
-                        <li><span class="report-label">Calculated Columns</span><span class="report-text">Create calculated columns with documented logic</span></li>
+                        <li><span class="report-label">Filtering</span><span class="report-text">Apply filters to exclude irrelevant rows or categories (Especially blank rows)</span></li>
+                        <li><span class="report-label">Merging / Appending</span><span class="report-text">Avoid using merging as it makes the model heavy and slow but either ways ensure merging/appending queries have aligned columns and data types</span></li>
+                        <li><span class="report-label">Customized Columns</span><span class="report-text">Create calculated columns with documented logic</span></li>
                         <li><span class="report-label">Error Handling</span><span class="report-text">Detect and resolve errors (invalid data types, failed conversions)</span></li>
                         <li><span class="report-label">Performance Optimization</span><span class="report-text">Remove unused columns and filter early to reduce model size</span></li>
-                        <li><span class="report-label">Documentation</span><span class="report-text">Rename steps and group related queries for maintainability</span></li>
+                        <li><span class="report-label">Commenting</span><span class="report-text">Comment steps and group related queries for maintainability</span></li>
                       </ol>
                     </div>
                   </div>
@@ -855,9 +911,9 @@
                         <li>Prefer star schema; avoid snowflake or flat designs.</li>
                         <li>Ensure relationship cardinality matches business logic.</li>
                         <li>Use single-direction relationships unless bi-directional is necessary.</li>
-                        <li>Use explicit measures (avoid implicit drag‑and‑drop summarization).</li>
+                        <li>Use explicit measures (avoid implicit drag‑and‑drop summarization). <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUU8KSqW1oxAjIKGxd2jCywB-cN_yBzEbCYehFI8tDMeFw?download=1">See Example</a></li>
                         <li>Document complex DAX logic with comments.</li>
-                        <li>Group all measures in a dedicated table <span class="mono">00-All Measures Grid</span>.</li>
+                        <li>Group all measures in a dedicated table <span class="mono">00-All Measures Grid</span> <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EYw3xIi8CRxGrckbkY6xJvIBCgPQz04885Ywi5m-9MrZnQ?download=1">See Example</a>.</li>
                         <li>Validate and assign correct data types (Text, Number, Date, etc.)</li>
                         <li>Perform heavy data shaping and transformations in Power Query.</li>
                         <li>Reserve DAX for lightweight calculations, aggregations, and measures.</li>
