@@ -585,6 +585,14 @@
           .album-nav:active { transform: translateY(-50%) scale(.96); }
           .album-nav.prev { left: 8px; }
           .album-nav.next { right: 8px; }
+
+          .stage-desc {
+            font-size: 0.95rem;   /* adjust size */
+            color: #64748b;       /* soft gray-blue */
+            margin: 6px 0 12px;   /* spacing */
+            margin-left: 25px;
+            line-height: 1.5;     /* readability */
+          }
   </style>
 </head>
 <body>
@@ -678,6 +686,7 @@
         </div>
         <div class="section-body">
           <div class="card">
+            <div id="workspaces-reference"></div>
             <p><strong>Accessibility and Available Portals:</strong> Power BI dashboards are stored in workspaces and can be viewed from an All in One Dashboard containing links to all other dashboards.</p>
             <ul>
               <li><strong>Power BI Workspaces:</strong> A centralized environment where dashboards, reports, and datasets are stored, shared, and collaboratively managed. Can be thought of the backend environment</li>
@@ -710,15 +719,24 @@
     <!-- Workflow -->
     <section id="workflow">
       <div class="section-hd">
-        <h2>4) Dashboard Creation Workflow</h2>
+        <h2>4) Dashboard Creation Workflow & Responsibility</h2>
         <span class="pill">Development • Review • QC • Publish</span>
       </div>
       <div class="section-body">
-        <div class="workflow-steps">
-          <div class="step"><h3>Development</h3><p>Build dashboards according to project requirements.</p></div>
-          <div class="step"><h3>Review</h3><p>Validate functionality, accuracy, and usability.</p></div>
-          <div class="step"><h3>Quality Check</h3><p>Ensure dashboards meet quality standards set by PCs team.</p></div>
-          <div class="step"><h3>Publish</h3><p>Deploy dashboards following best practices.</p></div>
+        <strong>Dashboard development goes through 3 major steps:</strong>
+        <div class="stage-desc"
+          <ol>
+            <li>Assessment of Dashboard Requirements</li>
+              <p>Such assessment helps understanding what the other are expecting in the dashboard, the kind of information they are looking for, and this required a significant effort to prepare the necessary templates and train the people how the final system is going to work.</>
+            <li>Developing & Feedback</li>
+                <p>Once the system is ready and templates are filled, the next step is Report Design. With the dashboard requirements already set, we now focus on building the Data Model that Power BI will use.</p>
+            <li>Publishing & Maintaining</li>
+                <P>Share the dashboard with users, keep it updated, and handle potential issues such as data problems that may break automatic refresh or require ad-hoc modifications.</P>
+          </ol>
+        </div>
+        <div class="card">
+          <img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EeNLaKk3PSBIsOnHvYeDZ2ABHqhR4qBIvvpen2UNpdLdjA?download=1" alt="Business Technology All in One Dashboard" style="width:100%;height:auto;border-radius:10px;display:block;">
+          <p style="text-align: center; color: #cbd5e1; margin: 8px 0 0;">Dashboard Creation Stages and RACI Diagram</p>
         </div>
       </div>
     </section>
@@ -929,17 +947,7 @@
                   
                   <div class="nested-accordion-item">
                     <div class="nested-accordion-header">
-                      <h4>1.4 Data Analytics</h4>
-                      <span>+</span>
-                    </div>
-                    <div class="nested-accordion-content">
-                      <div class="figure"><img src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EdEM2shYjwJFgf4S37mjvegBPs7Hl1nuj7TavpJDhgscOA?download=1" alt="Analysis Process"></div>
-                    </div>
-                  </div>
-                  
-                  <div class="nested-accordion-item">
-                    <div class="nested-accordion-header">
-                      <h4>1.5 Data Visualizing</h4>
+                      <h4>1.4 Data Visualizing</h4>
                       <span>+</span>
                     </div>
                     <div class="nested-accordion-content">
@@ -991,7 +999,7 @@
                       <span>+</span>
                     </div>
                     <div class="nested-accordion-content">
-                      <p>Dashboards are published to a centralized workspace set up by IT, with a folder structure for each department.</p>
+                      <p>Instead of having 2 Power BI workspaces like we explained <a href="#workspaces-reference">here</a> and to seek standerdization, Dashboards will be published to a centralized workspace set up by IT, with a folder structure for each department.<a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EVE7GItGZO9FkBZtP-Sr51IBoBXpKOsiSDYoJcLppWee2g?download=1">See Example</a></p>
                     </div>
                   </div>
                   
@@ -1001,7 +1009,7 @@
                       <span>+</span>
                     </div>
                     <div class="nested-accordion-content">
-                      <p>Refresh is scheduled to run at least twice daily (or more as required). Stakeholders are notified if refresh fails.</p>
+                      <p>Refresh is scheduled to run at least twice daily (or more as required). Stakeholders are notified if refresh fails. <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EeRvUNrvVx1HkA_L3ZAd-A4BlMzU4zYLFKK-p17aPj6XKQ?download=1">See Example</a></p>
                     </div>
                   </div>
                   
