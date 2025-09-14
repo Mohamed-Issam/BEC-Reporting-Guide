@@ -726,10 +726,10 @@
       </div>
       <div class="section-body">
         <strong>Dashboard development goes through 3 major steps:</strong>
-        <div class="stage-desc"
+        <div class="stage-desc">
           <ol>
             <li>Assessment of Dashboard Requirements</li>
-              <p>Such assessment helps understanding what the other are expecting in the dashboard, the kind of information they are looking for, and this required a significant effort to prepare the necessary templates and train the people how the final system is going to work.</>
+              <p>Such assessment helps understanding what the other are expecting in the dashboard, the kind of information they are looking for, and this required a significant effort to prepare the necessary templates and train the people how the final system is going to work.</p>
             <li>Developing & Feedback</li>
                 <p>Once the system is ready and templates are filled, the next step is Report Design. With the dashboard requirements already set, we now focus on building the Data Model that Power BI will use.</p>
             <li>Publishing & Maintaining</li>
@@ -801,7 +801,7 @@
                           </table>
                           <p><a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EXKZOqIjt4ZAvfk2E2Z-CUsB_ly7jsAGmaKUHzEeVV5x2w?download=1">View folder structure practical example</a></p>
                         </div>
-                        <li>Dashboard file name should follow this naming convention "Dashboad Name - Rev00", and new modifications need to take a new revision like this <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ES4Ys-nn495Hknw0rvoLG5EB0bHUDQfSO0XsLPh-Yg-cCg?download=1"> See Example</a></li></li>
+                        <li>Dashboard file name should follow this naming convention "Dashboad Name - Rev00", and new modifications need to take a new revision like this <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/ES4Ys-nn495Hknw0rvoLG5EB0bHUDQfSO0XsLPh-Yg-cCg?download=1"> See Example</a></li>
                         <li>Excel sheets must be formatted as tables, named like <span class="mono">T_Invoices</span>. <a href="#" class="open-image" data-img-src="https://becarabia-my.sharepoint.com/:i:/p/karam_moukhtar/EUU8KSqW1oxAjIKGxd2jCywB-cN_yBzEbCYehFI8tDMeFw?download=1">See Example</a></li>
                         <li>The dataset must include a primary key column with distinct, non-duplicate values. For example in the picture above "IPC" can be considered the primary key</li>
                         <li>A SharePoint URL parameter must be defined in the Power BI model.</li>
@@ -1204,7 +1204,7 @@
     })();
   </script>
   <script>
-    // Image modal behavior for links with class open-image
+    // Image modal behavior for all images (make every image clickable to magnify)
     (function(){
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImage');
@@ -1212,6 +1212,7 @@
       const body = document.body;
       if (!modal || !modalImg || !closeBtn) return;
       function openModal(src){
+        if (!src) return;
         modal.style.display = 'block';
         modalImg.src = src;
         body.classList.add('modal-open');
@@ -1221,28 +1222,39 @@
         modalImg.src = '';
         body.classList.remove('modal-open');
       }
+      // 1) Links that explicitly request opening an image
       document.querySelectorAll('a.open-image').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          const src = link.getAttribute('data-img-src');
-          if (src) openModal(src);
+          const src = link.getAttribute('data-img-src') || link.getAttribute('href');
+          openModal(src);
         });
       });
-      // Album images open in modal on click
-      document.querySelectorAll('.album-slide img.open-image').forEach(img => {
+      // 2) Make all inline images clickable to open in modal (except logo and images inside the modal itself)
+      document.querySelectorAll('img').forEach(img => {
+        // Skip modal image, icons, or images that should not be clickable
+        if (img.id === 'modalImage') return;
+        // Add a visual cue class only to content images (not the logo in header)
+        if (!img.classList.contains('clickable-image') && !img.closest('a')) {
+          img.classList.add('clickable-image');
+        }
         img.addEventListener('click', (e) => {
-          e.preventDefault();
+          // If the image is already wrapped in a link that is not image href, prevent navigation but open modal
+          if (img.closest('a')) {
+            e.preventDefault();
+          }
           const src = img.getAttribute('data-img-src') || img.getAttribute('src');
-          if (src) openModal(src);
+          openModal(src);
         });
       });
-      // Ensure any album images use their data source as src so they display immediately
+      // 3) Ensure any album images use their data source as src so they display immediately
       document.querySelectorAll('.album-slide img[data-img-src]').forEach(img => {
         const ds = img.getAttribute('data-img-src');
         if (ds && (!img.getAttribute('src') || img.getAttribute('src') !== ds)) {
           img.setAttribute('src', ds);
         }
       });
+      // Close interactions
       closeBtn.addEventListener('click', closeModal);
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
